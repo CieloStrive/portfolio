@@ -126,3 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/' #媒体的网址/相对路径
+#还需要一个服务器算（本地）文件夹路径：
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#制定了url和根目录，还需要再url.py里使访问url就对应到服务器文件夹路径

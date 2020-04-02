@@ -1,4 +1,6 @@
 <h1>This is home page</h1>
 {% for gallery in gallerys.all %}
 {{ gallery.description }}
+{{ gallery.image.url }} <!--显示image的url网址，如果要显示图片就需要用html的标签-->
+<img src="{{ gallery.image.url }}" alt="">
 {% endfor %}
