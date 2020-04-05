@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # My app 创建APP就要注册APP
     'gallery.apps.GalleryConfig', #gallery下的apps.py里的GalleryConfig类，不用纠结具体是啥
+    'blog'
 ]
 
 MIDDLEWARE = [

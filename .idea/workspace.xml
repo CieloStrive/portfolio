@@ -12,6 +12,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -20,10 +21,14 @@
   </component>
   <component name="ProjectId" id="1ZeFVVvnl2M960iZ0K5qm0zYnXy" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/blog" />
     <property name="settings.editor.selected.configurable" value="restructured.text.topic" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Git_repos\portfolio\blog" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Git_repos\portfolio\portfolio" />
     </key>
