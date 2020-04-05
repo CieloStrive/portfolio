@@ -13,3 +13,6 @@ class Blog(models.Model):
 
     def __str__(self):   #Blog object本身name
         return self.title
+
+    def summary(self):
+        return (self.text[:100]+'...')#用字符串切片完成摘要部分内容的功能
