@@ -19,5 +19,9 @@ from . import  views
 
 
 urlpatterns = [
-    path('', views.blog_page)
+    path('', views.blog_page), #这里因为在最顶层urls里写了/blog都来这里查询。此处的空path已经是.../blog/了
+    path('<int:blog_id>/', views.blog_article)
+    # 对于完整博文网页的处理，根据model的隐藏属性id生成url
+    # blog_id也会传递进views.blog_article，记得写在参数列表里
+    # 在views里也处理一下
 ]

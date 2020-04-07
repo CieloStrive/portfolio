@@ -10,8 +10,11 @@
 <br>
 {% endfor %} -->
 
+<!--1.套上模板-->
+
 <!doctype html>
 <html lang="en">
+  <!--4.解决换行问题-->
   <style type="text/css">
     pre {
         white-space: pre-wrap;       /* css-3 */
@@ -69,7 +72,7 @@
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <p class="text-muted">This is a site mixed with gallery and blogs. Go check some fantastic photographs and blogs about universe observed by Hubble!</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contact</h4>
@@ -86,7 +89,7 @@
     <div class="container d-flex justify-content-between">
       <a href="#" class="navbar-brand d-flex align-items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
+        <strong>Blogs</strong>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -99,25 +102,28 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1>My Blog</h1>
+      <h1>My Blogs</h1>
       <p class="lead text-muted">This collection displays Universe observed by Hubble at different days. Everyone will possibly find the image and introduction for universe observed at their birthday </p>
       <p>
-        <a href=".." class="btn btn-primary my-2">Back to Home Page</a>
-        <!--回到主页按钮，用两个点：".."返回上一级主页-->
+        <a href=".." class="btn btn-primary my-2">My gallery</a>
+        <!--7.回到主页按钮，用两个点：".."返回上一级主页-->
       </p>
     </div>
   </section>
-  <div class="container"> <!--给一个class左对齐不会那么厉害-->
+  <div class="container"> <!--2.给一个class左对齐不会那么厉害-->
      {% for blog in blogs.all %}
-   <h2><a href="">{{ blog.title }}</a></h2> <!--将title用h2标签变大，用a标签抱起来代表链接--><!--链接下次再做-->
+   <h2><a href="{{ blog.id }}">{{ blog.title }}</a></h2> <!--6.将title用h2标签变大，用a标签抱起来代表链接--><!--链接下次再做-->
+     <!--7.制作点击标题跳转到博客全文页面：Blog模型的对象其实有隐藏属性id，在migration/initial.py里可以看到-->
+     <!--8.这里自动生成的id就可以拿来作为跳转网址url: .../blog/id -->
+     <!--9.因为我们在最顶层urls.py里指定了/blog页面都去blog/urls.py里找，所以去blog/urls.py里完成网址的跳转-->
      {{ blog.date }}
      <br>
      <img src="{{ blog.image.url }}" height=240 >
      <br>
-     <pre style = "width:750px">{{ blog.summary }}</pre> <!--加上pre标签使内容有空格，但是段内换行就有问题了，我们要在顶部加入一个style-->
+     <pre style = "width:750px">{{ blog.summary }}</pre> <!--3.加上pre标签使内容有空格，但是段内换行就有问题了，我们要在顶部加入一个style-->
      <br>
      {% endfor %}
-     <!--一我们将所有博文都放在一个页面显然是不合逻辑的，仙子我们对model做一些改变-->
+     <!--5.我们将所有博文都放在一个页面显然是不合逻辑的，仙子我们对model做一些改变-->
   </div>
 
 </main>
@@ -127,8 +133,8 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+    <p>The customized gallery is &copy; Cielo Yi</p>
+    <p>New Here? <a href="/blog">Catch a glimpse on blogs about mysterious universe</a>.</p>
   </div>
 </footer>
 
