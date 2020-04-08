@@ -16,6 +16,7 @@
 <!--9.用上面的for循环框住card的division-->
 <!doctype html>
 <html lang="en">
+  {% load staticfiles %} <!--使load静态文件生效-->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -98,7 +99,11 @@
       <p class="lead text-muted">This is home page serving as a gallery. Below is a collection of image of universe observed by Hubble.</p>
       <p>
         <a href="/blog" class="btn btn-primary my-2">My blogs</a> <!--去往blog的按钮-->
-        <a href="#" class="btn btn-secondary my-2">Click to like</a>
+        <a href="{% static 'my_love.jpg' %}" class="btn btn-secondary my-2">My Secret</a>
+        <!--对这个按钮做一个对静态文件的跳转--><!--静态文件就是网页上不太会变的文件，可以通过static机制创建以及访问文件不需要新建网页-->
+        <!--静态文件名不能包含'符号不然放在'file_name.jpg'语法出现错误-->
+        <!--要让这个生效需要在最顶上加一个tag-->
+        <!--去setting里创建路径-->
       </p>
     </div>
   </section>

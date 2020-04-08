@@ -126,8 +126,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')#系统static路径，可以用来放如上静态文件
+#python manage.py collectstatic指令让系统将静态文件收集到static里
+#去gitignore里修改配置让git不要上传系统static文件以及私密文件
 
+#需要指定属于自己个人文件的静态文件目录，因为往往把所有系统静态文件都会放在static/里面，会混杂一些项目本身的静态文件
+
+#将长期不会改变的图片文本之类的是放在自己DTY的静态文件夹里
 STATIC_URL = '/static/'
+#static的url有了，还需要一个路径，如下建立
+STATICFILES_DIRS = [ #指定staticfile去哪读取,可以写多个路径在列表里
+    os.path.join(BASE_DIR, 'portfolio/static_pdf/'), #base是项目文件夹
+    os.path.join(BASE_DIR, 'portfolio/static_pic/'), #base是项目文件夹
+]
 
 MEDIA_URL = '/media/' #媒体的网址/相对路径
 #还需要一个服务器算（本地）文件夹路径：
